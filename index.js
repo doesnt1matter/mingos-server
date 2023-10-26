@@ -9,8 +9,10 @@ const _clientUrl = process.env.CLIENT_URL;
 const _port = process.env.PORT | 5000;
 
 //MIDDLEWARES
+server.use(express.json());
 server.use(CORS({origin: _clientUrl}));
-server.use("/vacancy", require("./Routers/VacancyRouter"))
+server.use("/vacancy", require("./Routers/VacancyRouter"));
+server.use(require("./Middlewares/ErrorMiddleware.js"));
 
 //START SERVER FUNCTION
 function Start()

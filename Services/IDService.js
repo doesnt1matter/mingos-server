@@ -17,4 +17,4 @@ class IDService {
 }
 
 //EXPORT
-module.exports = new IDService;
+module.exports = new IDService();

@@ -6,11 +6,11 @@ const VacancyRouter = require("express").Router();
 const VacancyController = require("../Controllers/VacancyController.js");
 
 //ENDPOINTS
-VacancyRouter.get("/:{id}", VacancyController.GetOne(req, res))
-VacancyRouter.get("/all", VacancyController.GetAll(req, res))
-VacancyRouter.get("/create", VacancyController.Create(req, res))
-VacancyRouter.get("/update/:{id}", VacancyController.Update(req, res))
-VacancyRouter.get("/delete/:{id}", VacancyController.Delete(req, res))
+VacancyRouter.get("/:{id}", VacancyController.GetOne)
+VacancyRouter.get("/all", VacancyController.GetAll)
+VacancyRouter.get("/create", VacancyController.Create)
+VacancyRouter.get("/update/:{id}", VacancyController.Update)
+VacancyRouter.get("/delete/:{id}", VacancyController.Delete)
 
 //EXPORT
-module.exports = new VacancyRouter();
+module.exports = VacancyRouter;

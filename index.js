@@ -10,15 +10,16 @@ const _port = process.env.PORT | 5000;
 
 //MIDDLEWARES
 server.use(CORS({origin: _clientUrl}));
+server.use("/vacancy", require("./Routers/VacancyRouter"))
 
 //START SERVER FUNCTION
-function Start() 
+function Start()
 {
-    try 
+    try
     {
         server.listen(5000, () => {console.log(`Server start on port: ${_port}`)});
-    } 
-    catch (error) 
+    }
+    catch (error)
     {
         console.log(error.message);
         process.exit(1);

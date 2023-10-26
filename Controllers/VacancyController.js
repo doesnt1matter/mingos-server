@@ -1,3 +1,6 @@
+const IDService = require("../Services/IDService.js");
+const VacancyService = require("../Services/VacancyService.js");
+
 //CLASS OF CONTROLLER
 //В контроллерах пользуются сервисами(бизнес-логикой) и пишут всякие проверки
 class VacancyController 
@@ -7,7 +10,8 @@ class VacancyController
     {
         try 
         {
-            
+            console.log(1);
+            res.status(200).json(JSON.parse(IDService.GenerateID()));
         } 
         catch (error) 
         {
@@ -19,7 +23,7 @@ class VacancyController
     {
         try 
         {
-            
+            console.log(req.params);
         } 
         catch (error) 
         {

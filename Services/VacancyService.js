@@ -22,3 +22,6 @@ class VacancyService
 
     }
 }
+
+//EXPORT
+module.exports = new VacancyService();

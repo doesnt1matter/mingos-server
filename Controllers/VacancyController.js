@@ -15,7 +15,6 @@ class VacancyController
         }
         catch (error) 
         {
-            
         }
     }
 
@@ -23,10 +22,6 @@ class VacancyController
     {
         try 
         {
-            if(req.params.id == 1000)
-            {
-                ErrorService.ThrowBadRequest("msg");
-            }
             res.status(200).json(req.params.id);
         } 
         catch (error) 

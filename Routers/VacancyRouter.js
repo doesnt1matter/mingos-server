@@ -6,8 +6,8 @@ const VacancyRouter = require("express").Router();
 const VacancyController = require("../Controllers/VacancyController.js");
 
 //ENDPOINTS
-VacancyRouter.get("/:id", VacancyController.GetOne)
 VacancyRouter.get("/all", VacancyController.GetAll)
+VacancyRouter.get("/:id", VacancyController.GetOne)
 VacancyRouter.get("/create", VacancyController.Create)
 VacancyRouter.get("/update/:{id}", VacancyController.Update)
 VacancyRouter.get("/delete/:{id}", VacancyController.Delete)

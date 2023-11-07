@@ -1,8 +1,11 @@
-//MODELES
+//MODULES
 require("dotenv").config();
 const express = require("express");
 const CORS = require("cors");
 const server = express();
+
+//DATABASE
+const DBService = require("./Services/DBService.js");
 
 //SYSTEM FIELDS
 const _clientUrl = process.env.CLIENT_URL;
@@ -20,6 +23,10 @@ function Start()
     try
     {
         server.listen(5000, () => {console.log(`Server start on port: ${_port}`)});
+        
+        //database connect
+        DBService.configure({database: "mingos", password: "Sobaka3g4?"});
+        DBService.connect();
     }
     catch (error)
     {

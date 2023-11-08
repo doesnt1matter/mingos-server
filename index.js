@@ -14,8 +14,9 @@ const _port = process.env.PORT | 5000;
 //MIDDLEWARES
 server.use(express.json());
 server.use(CORS({origin: _clientUrl}));
-server.use("/vacancy", require("./Routers/VacancyRouter.js"));
 server.use("/auth", require("./Routers/AuthRouter.js"));
+server.use("/user", require("./Routers/UserRouter.js"));
+server.use("/vacancy", require("./Routers/VacancyRouter.js"));
 server.use(require("./Middlewares/ErrorMiddleware.js"));
 
 //START SERVER FUNCTION

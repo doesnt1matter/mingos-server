@@ -9,7 +9,13 @@ class AuthController
     {
         try 
         {
-            const guest = UserService.GetAll();
+            const data = req.body;
+
+            const guest = await UserService.GetOne(data.telephone);
+            if(guest) ErrorService.ThrowBadRequest("Пользователь уже существует")
+
+            
+
             res.json(guest);
         }
         catch (error)

@@ -5,6 +5,7 @@ const CORS = require("cors");
 const server = express();
 
 //DATABASE
+const DBService = require("./Services/DBService.js");
 
 //SYSTEM FIELDS
 const _clientUrl = process.env.CLIENT_URL;
@@ -23,6 +24,7 @@ function Start()
     try
     {
         server.listen(5000, () => {console.log(`Server start on port: ${_port}`)});
+        DBService.Connect();
     }
     catch (error)
     {

@@ -4,15 +4,17 @@ class ErrorService
 {
         ThrowBadRequest(message)
         {
-            let error = new Error("BAD REQUEST: " + message);
+            let error = new Error(message);
             error.status = 400;
+            error.type = "BAD REQUEST"
             throw error;
         }
 
         ThrowServerError(message)
         {
-            let error = new Error("SERVER ERROR: " + message);
+            let error = new Error(message);
             error.status = 500;
+            error.type = "SERVER ERROR"
             throw error;
         }
 }

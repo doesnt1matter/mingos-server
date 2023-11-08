@@ -1,30 +1,27 @@
-const db = require("../database.js");
-const IDService = require("./IDService.js")
+const query = require("./DBService.js").Query
 
 //CREATE SERVICE
 //В сервисах пишут бизнес логику, которую используют контроллеры
 class UserService {
     async GetAll() {
-        db.query("select * from users", (error, results) => {
-            if(error) console.log(error);
-            else console.log(results);
-        });
-        return undefined;
+        const result = await query("select * from users");
+        return result;
     }
 
-    GetOne(identificator) {
-
+    async GetOne(identificator) {
+        const result = await query("select * from users where id=? or telephone=?", [identificator, identificator]);
+        return result;
     }
 
-    Create(data) {
-
-    }
-
-    Update() {
+    async Create(data) {
 
     }
 
-    Delete() {
+    async Update() {
+
+    }
+
+    async Delete() {
 
     }
 }

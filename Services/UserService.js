@@ -11,28 +11,46 @@ class UserService {
     }
 
     async GetOne(identificator) {
-        const result = await query("select * from users where id=? or telephone=?", [identificator, identificator]);
-        return result;
+        const result = await query("select * from users where id=? or telephone=? or email=?", [identificator, identificator, identificator]);
+        return result[0];
     }
 
     async Create(data) {
-        const user = await query(`insert into users (id, name, surname, patronymic, telephone, email) 
+        await query(`insert into users 
+        (id, name, surname, patronymic, telephone, email) 
         values (?,?,?,?,?,?)`,
-            [IDService.GenerateID(), ...data]
+            [
+                IDService.GenerateID(),
+                data.name,
+                data.surname,
+                data.patronymic,
+                data.telephone,
+                data.email
+            ]
         );
 
+        const user = await this.GetOne(data.telephone);
         return user;
     }
 
     async Update(id, data) {
-        const result = await query(`update users
+        await query(`update users
         set 
-        name=?
-        surname=?
-        patronymic=?
-        telephone=?
+        name=?,
+        surname=?,
+        patronymic=?,
+        telephone=?,
         email=?
-        where id=${id}`, [...data]);
+        where id='${id}'`, 
+        [
+            data.name,
+            data.surname,
+            data.patronymic,
+            data.telephone,
+            data.email
+        ]);
+
+        const result = await this.GetOne(id);
 
         return result;
     }

@@ -8,6 +8,7 @@ const UserController = require("../Controllers/UserController.js");
 //ENDPOINTS
 UserRouter.get("/all", UserController.GetAll)
 UserRouter.put("/update", UserController.UpdateAccount)
+UserRouter.put("/update-password", UserController.UpdatePassword)
 UserRouter.delete("/delete", UserController.DeleteAccount)
 
 //EXPORT
